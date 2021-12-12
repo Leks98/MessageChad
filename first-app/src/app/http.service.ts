@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { User } from './user';
+import { Message } from './message';
 
 const URL = "/api"
 
@@ -30,6 +31,17 @@ export class HttpService {
     return this.http.post(URL + "/register", user);
   }
 
+  getUsers(){
+    return this.http.get(URL + "/users");
+  }
+
+  getMessages(id: number){
+    return this.http.get(URL + "/messages/" + id);
+  }
+
+  sendMessages(mes: Message){
+    return this.http.post(URL + "/messages/", mes);
+  }
   // Setter ustawiający wartość w polu loginUserData
   set user(user: User) {
     this.loginUserData = user;

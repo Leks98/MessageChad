@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { HttpService } from '../http.service';
+import { MessageWSService } from '../message-ws.service';
 import { User } from '../user';
 
 
@@ -24,6 +25,7 @@ export class LoginComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private router: Router,
+    private wsService: MessageWSService,
     private httpService: HttpService,
   ) {
     // Sprawdzenie czy uzytkownik nie jest zalogowany, jezeli tak - przejscie do głownego panelu
@@ -63,6 +65,7 @@ export class LoginComponent implements OnInit {
         data => {
           if ("loggedin" in data) {
             if (data["loggedin"] === true) {
+              this.wsService.open();
               // Zapisanie informacji o tym, że udało się zalogować użytkownika oraz jego dane
               this.httpService.isLogin = true;
               this.httpService.user = new User(data["user_id"], data["user_name"], "");

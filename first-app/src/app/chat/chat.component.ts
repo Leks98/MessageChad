@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { HttpService } from '../http.service';
 import { User } from '../user';
 import { Message } from '../message';
+import { MessageWSService } from '../message-ws.service';
 
 @Component({
   selector: 'app-chat',
@@ -23,6 +24,7 @@ export class ChatComponent {
 
   constructor(
     private router: Router,
+    private wsService: MessageWSService,
     private httpService: HttpService,
   ) {
     // Sprawdzenie czy uzytkownik nie jest zalogowany, jezeli tak - przejscie do głownego panelu
@@ -33,6 +35,12 @@ export class ChatComponent {
 
   ngOnInit() {
     this.reloadUsers();
+    this.wsService.onAnotherUserConneted.subscribe((event => {
+      this.reloadUsers();
+    }));
+    this.wsService.onMessage.subscribe((event =>{
+      this.getMessagesWithSelectedUser();
+    }));
   }
 
 
@@ -43,9 +51,9 @@ export class ChatComponent {
 
   // Funkcja wysyłająca wiadomość
   sendMessage(e) {
-
+//
     
-    this.httpService.sendMessages(new Message()).subscribe(
+    this.httpService.sendMessages(new Message(this.selectedUser.user_id,e)).subscribe(
       data => {
         console.log("ChatComponent, onSubmit:", data);
       },

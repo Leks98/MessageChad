@@ -2,7 +2,7 @@
     <!-- TODO: Dodaj wywołanie funkcji  userSelected podczas przyjścia 
         zdarzenia z komponentu app-chat-user-list-->
 
-    <app-chat-user-list [users]="users">
+    <app-chat-user-list [users]="users" (userClicked)="userSelected($event)">
     </app-chat-user-list>
 
 
@@ -23,9 +23,9 @@
 
     <ng-container *ngIf="selectedUser">
       <!-- TODO: wyświetlenie nazwy wybranego użytkownika -->
-
+      {{selectedUser.user_name}}
       <br />
       <!-- TODO: wyswietlenie id wybranego użytkownika -->
-
+      {{selectedUser.user_id}}
     </ng-container>
 
