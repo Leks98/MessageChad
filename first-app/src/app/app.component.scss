@@ -1,5 +1,75 @@
-// .background{
-//     background-image: url("/assets/images/mainBackground.jpg");
-//     background-size: 100%;
-//     background-size: cover;  
-// }
+#backgroundImage {
+    width: 100vw;
+    height: 100vh;
+    background-image: url("/assets/images/mainBackground.jpg");
+    position: relative;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+mat-card {
+    width: 30%;
+    margin: 10% auto;
+    border-radius: 8px;
+}
+mat-form-field, mat-checkbox {
+    width: 80%;
+    display: block;
+    margin: auto;
+}
+mat-card-content {
+    margin-top: 20px;
+}
+
+.login-button {
+    margin-top: 20px;
+    display: block;
+    width: 80;
+    margin: 20px auto;
+}
+
+.companyName{
+    font-size: 150%;
+    color: white;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.mat-toolbar{
+  height: 7vh;
+  overflow: auto;
+  background-color:rgb(10, 89, 120);
+}
+
+div {
+    overflow: inherit;
+}
+
+.mat-sidenav-container{
+  background-color: rgb(230, 207, 197);
+  min-height: 93vh !important;
+}
+
+a{
+    text-decoration: none;
+    white-space: normal;
+}
+
+button{
+    font-size: 110%;
+    min-width: min-content;
+}
+
+.example-spacer {
+    flex: 1 1 auto;
+  }
+
+.mat-sidenav-content{
+      font-size: 200%;
+      text-align: center;
+  }
+
+  .divider{
+    width:30px;
+    height:auto;
+    display:inline-block;
+}

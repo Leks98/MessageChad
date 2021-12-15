@@ -9,10 +9,20 @@ import { Router } from '@angular/router';
 })
 export class AppComponent {
 
+ btType:ButtonType; 
+ buttonEnumType: typeof ButtonType = ButtonType;
+
   constructor(
     public httpService: HttpService,
     private router: Router) {
+      this.btType=ButtonType.none;
   }
+
+
+setButtonText(buttonType:ButtonType){
+    this.btType=buttonType;
+}
+
 
   logout() {
     this.httpService.logout().subscribe(
@@ -27,3 +37,12 @@ export class AppComponent {
       });
   }
 }
+
+enum ButtonType{
+  none,
+  home, 
+  info,
+}
+
+
+
