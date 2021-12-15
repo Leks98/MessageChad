@@ -35,13 +35,9 @@ mat-card-content {
 }
 
 .mat-toolbar{
-  height: 7vh;
+  height: 6rem;
   overflow: auto;
   background-color:rgb(10, 89, 120);
-}
-
-div {
-    overflow: inherit;
 }
 
 .mat-sidenav-container{
@@ -72,4 +68,9 @@ button{
     width:30px;
     height:auto;
     display:inline-block;
+}
+
+.button-label{
+    margin-top: 5px;
+    display: block;
 }

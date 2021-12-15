@@ -1,16 +1,16 @@
 <!-- <div class="form-group"> -->
-  <!-- Angular wprowadza wiele dodatkowych pol jak i modyfikuje pola htmlowe - tak aby był do nich dostęp za pomocą databindingu -->
-  <!-- <button (click) = "logout()">Log out</button> -->
-  <!-- Przejście pod login -->
+<!-- Angular wprowadza wiele dodatkowych pol jak i modyfikuje pola htmlowe - tak aby był do nich dostęp za pomocą databindingu -->
+<!-- <button (click) = "logout()">Log out</button> -->
+<!-- Przejście pod login -->
 <!-- </div> -->
 
 <!-- <div class="background"></div> -->
 <!-- <div [ngStyle]="{'background-color':'green'}"><router-outlet></router-outlet></div> -->
 
 <!-- <div> -->
-  <!-- #DFCAA0 -->
+<!-- #DFCAA0 -->
 
- 
+
 
 <!-- 
   <mat-toolbar color="#AFEEEE">   
@@ -20,71 +20,70 @@
       </button>
     </div> -->
 
-  <div> 
-    <mat-toolbar color="primary">
-      <div fxShow="true" fxHide.gt-sm="true">
-        <button mat-icon-button (click)="sidenav.toggle()">
-          <mat-icon>menu</mat-icon>
-        </button>
-      </div>
-  
-      <span class="companyName">MessageChad</span>
-      <span class="example-spacer"></span>
-      <div height="auto" fxLayout="row" fxShow="true" fxHide.lt-md="true" >
-        <div height="auto" (mouseover)="setButtonText(buttonEnumType.home)" (mouseout)="setButtonText(buttonEnumType.none)">
-        <a mat-mini-fab color="#9bddff" routerLink="/">
+<div>
+  <mat-toolbar color="primary">
+    <div fxShow="true" fxHide.gt-sm="true">
+      <button mat-icon-button (click)="sidenav.toggle()">
+        <mat-icon>menu</mat-icon>
+      </button>
+    </div>
+
+    <span class="companyName">MessageChad</span>
+    <span class="example-spacer"></span>
+    <div>
+      <a mat-mini-fab color="#9bddff" routerLink="/" (mouseover)="setButtonText(buttonEnumType.home)"
+      (mouseout)="setButtonText(buttonEnumType.none)">
+        <mat-icon>home</mat-icon>
+        <span *ngIf="btType==buttonEnumType.home" style="color:white" class="button-label">
+          <figcaption class="caption">Home</figcaption>
+        </span>
+      </a>
+    </div>
+    <div class="divider"></div>
+    <div>
+      <a mat-mini-fab color="#9bddff" routerLink="/info" (mouseover)="setButtonText(buttonEnumType.info)"
+      (mouseout)="setButtonText(buttonEnumType.none)">
+        <mat-icon>info</mat-icon>
+        <span *ngIf="btType==buttonEnumType.info" style="color:white" class="button-label">
+          <figcaption class="caption">Info</figcaption>
+        </span>
+      </a>
+    </div>
+  </mat-toolbar>
+  <mat-sidenav-container fxFlexFill class="example-container">
+
+    <mat-sidenav color="primary" #sidenav fxLayout="column" mode="over" opened="false" fxHide.gt-sm="true">
+      <div fxLayout="column">
+        <a mat-mini-fab color="#9bddff" routerLink="/" fxLayout="column" (mouseover)="setButtonText(buttonEnumType.home)"
+        (mouseout)="setButtonText(buttonEnumType.none)">
           <mat-icon>home</mat-icon>
           <span *ngIf="btType==buttonEnumType.home" style="color:white">
             <figcaption class="caption">Home</figcaption>
           </span>
         </a>
-      </div>
         <div class="divider"></div>
-      <div height="auto" (mouseover)="setButtonText(buttonEnumType.info)" (mouseout)="setButtonText(buttonEnumType.none)"> 
-        <a mat-mini-fab color="#9bddff" routerLink="/info">
-          <mat-icon>info</mat-icon>
-          <span *ngIf="btType==buttonEnumType.info" style="color:white">
-            <figcaption class="caption">Info</figcaption>
-          </span>
-        </a>
+          <a mat-mini-fab color="#9bddff" routerLink="/info" (mouseover)="setButtonText(buttonEnumType.info)" (mouseout)="setButtonText(buttonEnumType.none)">
+            <mat-icon>info</mat-icon>
+            <span *ngIf="btType==buttonEnumType.info" style="color:white">
+              <figcaption class="caption">Info</figcaption>
+            </span>
+          </a>
       </div>
-  </div>
-    </mat-toolbar>
-    <mat-sidenav-container fxFlexFill class="example-container">
-  
-      <mat-sidenav color="primary" #sidenav fxLayout="column" mode="over"  opened="false" fxHide.gt-sm="true">
-      <div fxLayout="column"  (mouseover)="setButtonText(buttonEnumType.home)" (mouseout)="setButtonText(buttonEnumType.none)">
-            <a mat-mini-fab color="#9bddff" routerLink="/">
-              <mat-icon>home</mat-icon>
-              <span *ngIf="btType==buttonEnumType.home" style="color:white">
-                <figcaption class="caption">Home</figcaption>
-              </span>
-            </a>
-          <div class="divider"></div>
-          <div (mouseover)="setButtonText(buttonEnumType.info)" (mouseout)="setButtonText(buttonEnumType.none)"> 
-            <a mat-mini-fab color="#9bddff" routerLink="/info">
-              <mat-icon>info</mat-icon>
-              <span *ngIf="btType==buttonEnumType.info" style="color:white">
-                <figcaption class="caption">Info</figcaption>
-              </span>
-            </a>
-        </div>
-        </div>
-      </mat-sidenav>
-      <mat-sidenav-content fxFlexFill>
-        <div id="backgroundImage"></div>
-      </mat-sidenav-content>
-    </mat-sidenav-container>
-  </div>
-  
+    </mat-sidenav>
+    <mat-sidenav-content fxFlexFill>
+      <div id="backgroundImage"></div>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>
+
 
 
 
 <div class="login-page">
   <mat-card class="mat-elevation-z12">
-      <mat-card-title style="text-align: center;">Sign In/Sign Up</mat-card-title>
-      <mat-tab-group mat-streach-tabs class="example-streched-tabs">
-          <!-- <mat-tab label="Sign In">
+    <mat-card-title style="text-align: center;">Sign In/Sign Up</mat-card-title>
+    <mat-tab-group mat-streach-tabs class="example-streched-tabs">
+      <!-- <mat-tab label="Sign In">
               <mat-card-content>
                   <form action="">
                       <mat-form-field>
@@ -196,9 +195,7 @@
                   </form>
               </mat-card-content>
           </mat-tab> -->
-      </mat-tab-group>
+    </mat-tab-group>
   </mat-card>
 </div>
- -->
-
-
+-->
