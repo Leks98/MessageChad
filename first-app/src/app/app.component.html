@@ -31,7 +31,7 @@
     <span class="companyName">MessageChad</span>
     <span class="example-spacer"></span>
     <div>
-      <a mat-mini-fab color="#9bddff" routerLink="/" (mouseover)="setButtonText(buttonEnumType.home)"
+      <a *ngIf="sidenav.opened == false" mat-mini-fab color="#9bddff" routerLink="/" (mouseover)="setButtonText(buttonEnumType.home)"
       (mouseout)="setButtonText(buttonEnumType.none)">
         <mat-icon>home</mat-icon>
         <span *ngIf="btType==buttonEnumType.home" style="color:white" class="button-label">
@@ -41,7 +41,7 @@
     </div>
     <div class="divider"></div>
     <div>
-      <a mat-mini-fab color="#9bddff" routerLink="/info" (mouseover)="setButtonText(buttonEnumType.info)"
+      <a *ngIf="sidenav.opened == false" mat-mini-fab color="#9bddff" routerLink="/info" (mouseover)="setButtonText(buttonEnumType.info)"
       (mouseout)="setButtonText(buttonEnumType.none)">
         <mat-icon>info</mat-icon>
         <span *ngIf="btType==buttonEnumType.info" style="color:white" class="button-label">
@@ -50,21 +50,23 @@
       </a>
     </div>
   </mat-toolbar>
+  
   <mat-sidenav-container fxFlexFill class="example-container">
 
-    <mat-sidenav color="primary" #sidenav fxLayout="column" mode="over" opened="false" fxHide.gt-sm="true">
+    <mat-sidenav #sidenav fxLayout="column" mode="over" opened="false">
       <div fxLayout="column">
-        <a mat-mini-fab color="#9bddff" routerLink="/" fxLayout="column" (mouseover)="setButtonText(buttonEnumType.home)"
-        (mouseout)="setButtonText(buttonEnumType.none)">
+        <a mat-mini-fab color="#9bddff" routerLink="/" fxLayout="column"
+          (mouseover)="setButtonText(buttonEnumType.home)" (mouseout)="setButtonText(buttonEnumType.none)">
           <mat-icon>home</mat-icon>
-          <span *ngIf="btType==buttonEnumType.home" style="color:white">
+          <span *ngIf="btType==buttonEnumType.home" style="color:black">
             <figcaption class="caption">Home</figcaption>
           </span>
         </a>
         <div class="divider"></div>
-          <a mat-mini-fab color="#9bddff" routerLink="/info" (mouseover)="setButtonText(buttonEnumType.info)" (mouseout)="setButtonText(buttonEnumType.none)">
+        <a mat-mini-fab color="#9bddff" routerLink="/info" (mouseover)="setButtonText(buttonEnumType.info)"
+          (mouseout)="setButtonText(buttonEnumType.none)">
             <mat-icon>info</mat-icon>
-            <span *ngIf="btType==buttonEnumType.info" style="color:white">
+          <span *ngIf="btType==buttonEnumType.info" style="color:black">
               <figcaption class="caption">Info</figcaption>
             </span>
           </a>
@@ -75,9 +77,6 @@
     </mat-sidenav-content>
   </mat-sidenav-container>
 </div>
-
-
-
 
 <div class="login-page">
   <mat-card class="mat-elevation-z12">
@@ -198,4 +197,7 @@
     </mat-tab-group>
   </mat-card>
 </div>
+
+
+
 -->
